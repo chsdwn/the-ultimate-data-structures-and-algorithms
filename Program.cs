@@ -6,7 +6,10 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int[] numbers = { 1, 2, 3 };
+            // O(1)
+            Console.WriteLine(numbers[0]);
+            Console.WriteLine(numbers[1]);
         }
     }
 }
