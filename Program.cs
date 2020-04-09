@@ -6,14 +6,9 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            string[] names = { "Ali", "Veli", "Ahmet" };
-
-            // O(n) space - How much extra space need to run
-            string[] copy = new string[names.Length];
-            foreach (string name in names)
-            {
-                Console.WriteLine($"Ne yaptın {name}");
-            }
+            int[] numbers = { 10, 20, 30 };
+            Console.WriteLine(numbers.Length);
+            Console.WriteLine(string.Join(", ", numbers));
         }
     }
 }
