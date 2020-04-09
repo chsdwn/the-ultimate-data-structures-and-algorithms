@@ -11,6 +11,7 @@ namespace the_ultimate_data_structures_and_algorithms
             numbers.insert(20);
             numbers.insert(30);
             numbers.insert(40);
+            numbers.removeAt(4);
             numbers.print();
         }
     }
