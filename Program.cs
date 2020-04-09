@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace the_ultimate_data_structures_and_algorithms
 {
@@ -6,14 +8,13 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            Array numbers = new Array(3);
-            numbers.insert(10);
-            numbers.insert(20);
-            numbers.insert(30);
-            numbers.insert(40);
-            System.Console.WriteLine(numbers.indexOf(10));
-            System.Console.WriteLine(numbers.indexOf(50));
-            numbers.print();
+            var list = new List<int>();
+            list.Add(10);
+            list.Add(20);
+            list.Add(30);
+            list.RemoveAt(0);
+            list.ToArray();
+            System.Console.WriteLine(string.Join(", ", list));
         }
     }
 }
