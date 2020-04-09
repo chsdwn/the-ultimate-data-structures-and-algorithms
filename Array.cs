@@ -53,6 +53,22 @@ namespace the_ultimate_data_structures_and_algorithms
             count--;
         }
 
+        public int indexOf(int item)
+        {
+            // If we find it, return index
+            // Otherwise, return -1
+            // O(1) best case
+            // O(n) worst case
+            for (int i = 0; i < count; i++)
+            {
+                if (items[i] == item)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         public void print()
         {
             for (int i = 0; i < count; i++)
