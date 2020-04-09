@@ -8,22 +8,11 @@ namespace the_ultimate_data_structures_and_algorithms
         {
             int[] numbers = { 1, 2, 3 };
 
-            // O(n + n^3) => O(n^3)
-            foreach (int number in numbers) // O(n)
-            {
-                Console.WriteLine(number);
-            }
-
-            foreach (int number in numbers) // O(n)
-            {
-                foreach (int number2 in numbers) // O(n)
-                {
-                    foreach (int number3 in numbers) // O(n)
-                    {
-                        Console.WriteLine($"{number}, {number2}, {number3}");
-                    }
-                }
-            }
+            // Constant     O(1)
+            // Logarithmic  O(log n)
+            // Linear       O(n)
+            // Quadratic    O(n^2)
+            // Exponential  O(2^n)
         }
     }
 }
