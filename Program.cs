@@ -6,13 +6,14 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            int[] numbers = { 1, 2, 3 };
+            string[] names = { "Ali", "Veli", "Ahmet" };
 
-            // Constant     O(1)
-            // Logarithmic  O(log n)
-            // Linear       O(n)
-            // Quadratic    O(n^2)
-            // Exponential  O(2^n)
+            // O(n) space - How much extra space need to run
+            string[] copy = new string[names.Length];
+            foreach (string name in names)
+            {
+                Console.WriteLine($"Ne yaptın {name}");
+            }
         }
     }
 }
