@@ -1,66 +1,20 @@
-using System;
-
 namespace the_ultimate_data_structures_and_algorithms
 {
-    public class MyArray
+    public class Array
     {
-        private int _length;
-        private int[] array;
-        private int emptyValues;
+        private int[] items;
+        private int count;
 
-        public MyArray(int length)
+        public Array(int length)
         {
-            _length = length;
-            emptyValues = length;
-            initialize();
-        }
-
-        private void initialize()
-        {
-            array = new int[_length];
-            for (int i = 0; i < _length; i++)
-            {
-                array[i] = 0;
-            }
-        }
-
-        public void insert(int item)
-        {
-            if (emptyValues > 0)
-            {
-                array[_length - emptyValues] = item;
-                emptyValues--;
-            }
-            else if (emptyValues == 0)
-            {
-                var updatedArray = new int[_length + 1];
-
-                for (int i = 0; i < _length; i++)
-                {
-                    updatedArray[i] = array[i];
-                }
-                updatedArray[_length] = item;
-                array = updatedArray;
-                _length++;
-            }
-        }
-
-        public int indexOf(int item)
-        {
-            for (int i = 0; i < _length; i++)
-            {
-                if (array[i] == item)
-                    return i;
-            }
-            return -1;
+            items = new int[length];
         }
 
         public void print()
         {
-            foreach (var item in array)
+            for (int i = 0; i < count; i++)
             {
-                Console.WriteLine(item);
-
+                System.Console.WriteLine(items[i]);
             }
         }
     }

@@ -6,16 +6,8 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            MyArray numbers = new MyArray(3);
-            numbers.insert(10);
-            numbers.insert(20);
-            numbers.insert(30);
-            numbers.insert(40);
-            numbers.insert(50);
+            Array numbers = new Array(3);
             numbers.print();
-            Console.WriteLine(numbers.indexOf(10));
-            Console.WriteLine(numbers.indexOf(20));
-            Console.WriteLine(numbers.indexOf(1));
         }
     }
 }
