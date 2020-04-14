@@ -1,3 +1,5 @@
+using System;
+
 namespace the_ultimate_data_structures_and_algorithms.LinkedList
 {
     public class MyLinkedList
@@ -60,6 +62,22 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
         public bool contains(int item)
         {
             return indexOf(item) != -1;
+        }
+
+        public void removeFirst()
+        {
+            if (isEmpty())
+                throw new Exception();
+
+            if (first == last)
+            {
+                first = last = null;
+                return;
+            }
+
+            var second = first.next;
+            first.next = null;
+            first = second;
         }
 
         private bool isEmpty()
