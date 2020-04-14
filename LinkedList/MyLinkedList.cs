@@ -80,9 +80,36 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
             first = second;
         }
 
+        public void removeLast()
+        {
+            if (isEmpty())
+                throw new Exception();
+
+            if (first == last)
+            {
+                first = last = null;
+                return;
+            }
+
+            var previous = getPrevious(last);
+            last = previous;
+            last.next = null;
+        }
+
         private bool isEmpty()
         {
             return first == null;
+        }
+
+        private MyNode getPrevious(MyNode node)
+        {
+            var current = first;
+            while (current != null)
+            {
+                if (current.next == node) return current;
+                current = current.next;
+            }
+            return null;
         }
     }
 }
