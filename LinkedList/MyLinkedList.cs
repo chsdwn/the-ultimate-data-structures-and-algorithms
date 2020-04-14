@@ -4,7 +4,7 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
     {
         private class MyNode
         {
-            private int value;
+            public int value;
             public MyNode next;
 
             public MyNode(int value)
@@ -42,6 +42,19 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
                 node.next = first;
                 first = node;
             }
+        }
+
+        public int indexOf(int item)
+        {
+            int index = 0;
+            var current = first;
+            while (current != null)
+            {
+                if (current.value == item) return index;
+                current = current.next;
+                index++;
+            }
+            return -1;
         }
 
         private bool isEmpty()
