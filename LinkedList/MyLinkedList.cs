@@ -20,7 +20,7 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
         {
             var node = new MyNode(item);
 
-            if (first == null)
+            if (isEmpty())
             {
                 first = last = node;
             }
@@ -29,6 +29,24 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
                 last.next = node;
                 last = node;
             }
+        }
+
+        public void addFirst(int item)
+        {
+            var node = new MyNode(item);
+
+            if (isEmpty())
+                first = last = node;
+            else
+            {
+                node.next = first;
+                first = node;
+            }
+        }
+
+        private bool isEmpty()
+        {
+            return first == null;
         }
     }
 }
