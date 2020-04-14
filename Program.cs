@@ -14,6 +14,8 @@ namespace the_ultimate_data_structures_and_algorithms
             System.Console.WriteLine(list.indexOf(10));
             System.Console.WriteLine(list.indexOf(30));
             System.Console.WriteLine(list.indexOf(0));
+            System.Console.WriteLine(list.contains(10));
+            System.Console.WriteLine(list.contains(0));
         }
     }
 }

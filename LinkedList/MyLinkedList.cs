@@ -57,6 +57,11 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
             return -1;
         }
 
+        public bool contains(int item)
+        {
+            return indexOf(item) != -1;
+        }
+
         private bool isEmpty()
         {
             return first == null;
