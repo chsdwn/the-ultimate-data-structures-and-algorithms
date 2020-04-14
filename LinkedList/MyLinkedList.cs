@@ -17,6 +17,7 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
 
         private MyNode first;
         private MyNode last;
+        private int count;
 
         public void addLast(int item)
         {
@@ -31,6 +32,8 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
                 last.next = node;
                 last = node;
             }
+
+            count++;
         }
 
         public void addFirst(int item)
@@ -44,6 +47,8 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
                 node.next = first;
                 first = node;
             }
+
+            count++;
         }
 
         public int indexOf(int item)
@@ -70,14 +75,15 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
                 throw new Exception();
 
             if (first == last)
-            {
                 first = last = null;
-                return;
+            else
+            {
+                var second = first.next;
+                first.next = null;
+                first = second;
             }
 
-            var second = first.next;
-            first.next = null;
-            first = second;
+            count--;
         }
 
         public void removeLast()
@@ -86,14 +92,20 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
                 throw new Exception();
 
             if (first == last)
-            {
                 first = last = null;
-                return;
+            else
+            {
+                var previous = getPrevious(last);
+                last = previous;
+                last.next = null;
             }
 
-            var previous = getPrevious(last);
-            last = previous;
-            last.next = null;
+            count--;
+        }
+
+        public int size()
+        {
+            return count;
         }
 
         private bool isEmpty()
