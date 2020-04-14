@@ -108,6 +108,21 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
             return count;
         }
 
+        public int[] toArray()
+        {
+            int[] array = new int[count];
+            var current = first;
+
+            var index = 0;
+            while (current != null)
+            {
+                array[index++] = current.value;
+                current = current.next;
+            }
+
+            return array;
+        }
+
         private bool isEmpty()
         {
             return first == null;

@@ -8,16 +8,11 @@ namespace the_ultimate_data_structures_and_algorithms
         static void Main(string[] args)
         {
             var list = new MyLinkedList();
-            System.Console.WriteLine(list.size());
             list.addLast(10);
-            System.Console.WriteLine(list.size());
             list.addLast(20);
             list.addLast(30);
-            System.Console.WriteLine(list.size());
-            list.removeLast();
-            list.removeLast();
-            list.removeFirst();
-            System.Console.WriteLine(list.size());
+            var array = list.toArray();
+            System.Console.WriteLine(String.Join(", ", array));
         }
     }
 }
