@@ -143,6 +143,31 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
             first = previous;
         }
 
+        public int getKthFromTheEnd(int k)
+        {
+            if (isEmpty()) throw new Exception();
+            if (k < 0) throw new Exception();
+            if (k >= count) throw new Exception();
+
+            var step = 0;
+            var current = first;
+            var result = first;
+            while (current.next != null)
+            {
+                if (step == k)
+                {
+                    result = result.next;
+                }
+                else
+                {
+                    step++;
+                }
+                current = current.next;
+            }
+
+            return result.value;
+        }
+
         private bool isEmpty()
         {
             return first == null;
