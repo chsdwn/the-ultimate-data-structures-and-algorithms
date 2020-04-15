@@ -165,6 +165,45 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
             return a.value;
         }
 
+        public void printMiddle()
+        {
+            var step = 0;
+            var current = first;
+            var middle = first;
+            while (current != null)
+            {
+                if (step % 2 == 0 && step != 0)
+                    middle = middle.next;
+
+                current = current.next;
+                step++;
+            }
+
+            if (step % 2 == 0) Console.WriteLine($"{middle.value}, {middle.next.value}");
+            else Console.WriteLine($"{middle.value}");
+        }
+
+        public bool hasLoop()
+        {
+            var step = 0;
+            var fast = first;
+            var slow = first;
+            while (slow != last)
+            {
+                if (fast.next == null) return false;
+
+                if (step % 2 == 0 && step != 0)
+                    slow = slow.next;
+
+                fast = fast.next;
+
+                if (fast == slow && fast != first) return true;
+
+                step++;
+            }
+            return false;
+        }
+
         private bool isEmpty()
         {
             return first == null;
