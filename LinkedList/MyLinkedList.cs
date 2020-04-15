@@ -125,38 +125,22 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
 
         public void reverse()
         {
-            if (isEmpty()) return;
-            if (first == last) return;
-            if (count == 2)
-            {
-                var swap = first;
-                first = last;
-                last = swap;
-                first.next = last;
-                last.next = null;
-                return;
-            }
+            if (isEmpty())
+                throw new Exception();
 
-            var array = toArray();
-            var length = array.Length;
-            var reversedArray = new int[length];
-
-
-            for (int i = 0; i < length; i++)
-                reversedArray[length - 1 - i] = array[i];
-
-            first = new MyNode(reversedArray[0]);
-            first.next = new MyNode(reversedArray[1]);
-
+            var previous = first;
             var current = first.next;
-            for (int i = 2; i < length - 1; i++)
+            while (current != null)
             {
-                current.next = new MyNode(reversedArray[i]);
-                current = current.next;
+                var next = current.next;
+                current.next = previous;
+                previous = current;
+                current = next;
             }
 
-            current.next = new MyNode(reversedArray[length - 1]);
-            last = current.next;
+            last = first;
+            last.next = null;
+            first = previous;
         }
 
         private bool isEmpty()

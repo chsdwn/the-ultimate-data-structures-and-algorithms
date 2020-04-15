@@ -10,7 +10,7 @@ namespace the_ultimate_data_structures_and_algorithms
             var list = new MyLinkedList();
             list.addLast(10);
             list.addLast(20);
-
+            list.addLast(30);
             var array = list.toArray();
             System.Console.WriteLine(String.Join(", ", array));
             list.reverse();
