@@ -123,6 +123,42 @@ namespace the_ultimate_data_structures_and_algorithms.LinkedList
             return array;
         }
 
+        public void reverse()
+        {
+            if (isEmpty()) return;
+            if (first == last) return;
+            if (count == 2)
+            {
+                var swap = first;
+                first = last;
+                last = swap;
+                first.next = last;
+                last.next = null;
+                return;
+            }
+
+            var array = toArray();
+            var length = array.Length;
+            var reversedArray = new int[length];
+
+
+            for (int i = 0; i < length; i++)
+                reversedArray[length - 1 - i] = array[i];
+
+            first = new MyNode(reversedArray[0]);
+            first.next = new MyNode(reversedArray[1]);
+
+            var current = first.next;
+            for (int i = 2; i < length - 1; i++)
+            {
+                current.next = new MyNode(reversedArray[i]);
+                current = current.next;
+            }
+
+            current.next = new MyNode(reversedArray[length - 1]);
+            last = current.next;
+        }
+
         private bool isEmpty()
         {
             return first == null;
