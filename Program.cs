@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using the_ultimate_data_structures_and_algorithms.Stack;
+using the_ultimate_data_structures_and_algorithms.Queue;
 
 namespace the_ultimate_data_structures_and_algorithms
 {
@@ -9,13 +8,18 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            var queue = new Queue<int>();
-            queue.Enqueue(10);
-            queue.Enqueue(20);
-            queue.Enqueue(30);
-            System.Console.WriteLine(String.Join(", ", queue.ToArray()));
-            reverse(queue);
-            System.Console.WriteLine(String.Join(", ", queue.ToArray()));
+            var queue = new MyQueue();
+            System.Console.WriteLine(queue.isEmpty());
+            System.Console.WriteLine(queue.isFull());
+            queue.enqueue(10);
+            queue.enqueue(20);
+            queue.enqueue(30);
+            queue.enqueue(40);
+            queue.enqueue(50);
+            System.Console.WriteLine(queue.isEmpty());
+            System.Console.WriteLine(queue.isFull());
+            System.Console.WriteLine(queue.peek());
+            System.Console.WriteLine(queue.dequeue());
         }
 
         public static void reverse(Queue<int> queue)
