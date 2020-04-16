@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using the_ultimate_data_structures_and_algorithms.Stack;
 
 namespace the_ultimate_data_structures_and_algorithms
 {
@@ -7,20 +7,11 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            var str = "abcd";
-            var stack = new Stack<string>();
-            foreach (var item in str)
-            {
-                stack.Push(item.ToString());
-            }
+            string str = null;
 
-            var reversedStr = "";
-            foreach (var item in stack.ToArray())
-            {
-                reversedStr = reversedStr + item;
-            }
-
-            System.Console.WriteLine(reversedStr);
+            StringReverser reverser = new StringReverser();
+            var result = reverser.reverse(str);
+            System.Console.WriteLine(result);
         }
     }
 }
