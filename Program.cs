@@ -7,11 +7,9 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            string str = null;
-
-            StringReverser reverser = new StringReverser();
-            var result = reverser.reverse(str);
-            System.Console.WriteLine(result);
+            var str = "{(12^2 * [(|-1| / 2) % 2])}";
+            var bs = new BalancedExpressions();
+            System.Console.WriteLine(bs.isBalanced(str));
         }
     }
 }
