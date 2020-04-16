@@ -7,16 +7,20 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            var stack = new Stack<int>();
-            stack.Push(10);
-            stack.Push(20);
-            stack.Push(30);
-            System.Console.WriteLine(String.Join(", ", stack.ToArray()));
-            var top = stack.Pop();
-            System.Console.WriteLine(top.ToString());
-            System.Console.WriteLine(String.Join(", ", stack.ToArray()));
-            top = stack.Peek();
-            System.Console.WriteLine(top.ToString());
+            var str = "abcd";
+            var stack = new Stack<string>();
+            foreach (var item in str)
+            {
+                stack.Push(item.ToString());
+            }
+
+            var reversedStr = "";
+            foreach (var item in stack.ToArray())
+            {
+                reversedStr = reversedStr + item;
+            }
+
+            System.Console.WriteLine(reversedStr);
         }
     }
 }
