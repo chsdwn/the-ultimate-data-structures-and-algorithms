@@ -13,38 +13,20 @@ namespace the_ultimate_data_structures_and_algorithms
             queue.Enqueue(10);
             queue.Enqueue(20);
             queue.Enqueue(30);
+            System.Console.WriteLine(String.Join(", ", queue.ToArray()));
             reverse(queue);
+            System.Console.WriteLine(String.Join(", ", queue.ToArray()));
         }
 
         public static void reverse(Queue<int> queue)
         {
-            var reversedQueue = new Queue<int>();
-            var queueCount = queue.Count;
-            var count = queue.Count;
-            var step = 1;
-            var swap = new Queue<int>();
+            var stack = new Stack<int>();
 
-            for (; ; )
-            {
-                if (queueCount == reversedQueue.Count) break;
+            while (queue.Count != 0)
+                stack.Push(queue.Dequeue());
 
-                if (step == count)
-                {
-                    reversedQueue.Enqueue(queue.Dequeue());
-                    queue = swap;
-                    count--;
-                    step = 1;
-                }
-                else
-                {
-                    step++;
-                    swap.Enqueue(queue.Dequeue());
-                }
-            }
-
-            System.Console.WriteLine(
-                "reversed: " + String.Join(", ", reversedQueue.ToArray())
-            );
+            while (stack.Count != 0)
+                queue.Enqueue(stack.Pop());
         }
     }
 }
