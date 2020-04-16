@@ -11,13 +11,10 @@ namespace the_ultimate_data_structures_and_algorithms
             stack.push(10);
             stack.push(20);
             stack.push(30);
-
-            var pop = stack.pop();
-            System.Console.WriteLine(pop);
+            stack.pop();
             var peek = stack.peek();
             System.Console.WriteLine(peek);
-            System.Console.WriteLine(stack.isEmpty());
-            stack.print();
+            System.Console.WriteLine(stack.ToString());
         }
     }
 }

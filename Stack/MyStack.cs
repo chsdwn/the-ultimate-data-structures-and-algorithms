@@ -4,61 +4,42 @@ namespace the_ultimate_data_structures_and_algorithms.Stack
 {
     public class MyStack
     {
-        private int[] array = new int[0];
-        private int size = 0;
+        private int[] items = new int[5];
+        private int count;
 
-        // push
         public void push(int item)
         {
-            if (size == 0)
-            {
-                array = new int[] { item };
-                size++;
-                return;
-            }
-
-            var updatedArray = new int[++size];
-            updatedArray[0] = item;
-            for (int i = 1; i < size; i++)
-                updatedArray[i] = array[i - 1];
-
-            array = updatedArray;
+            if (count == items.Length)
+                throw new StackOverflowException();
+            items[count++] = item;
         }
 
-        // pop
         public int pop()
         {
-            var updatedArray = new int[--size];
-
-            System.Console.WriteLine(size);
-            if (size > 0)
-            {
-                for (int i = 0; i < size; i++)
-                    updatedArray[i] = array[i + 1];
-
-            }
-            var popedItem = array[0];
-            array = updatedArray;
-
-            return popedItem;
+            if (count == 0) throw new Exception();
+            return items[--count];
         }
 
-        // peek
         public int peek()
         {
-            if (size == 0) throw new Exception();
-            return array[0];
+            if (count == 0) throw new Exception();
+            return items[count - 1];
         }
 
-        // isEmpty
         public bool isEmpty()
         {
-            return size <= 0;
+            return count == 0;
         }
 
-        public void print()
+        public override string ToString()
         {
-            System.Console.WriteLine(String.Join(", ", array));
+            var result = "";
+            for (int i = 0; i < count; i++)
+            {
+                result += items[i];
+                if (i != count - 1) result += ", ";
+            }
+            return result;
         }
     }
 }
