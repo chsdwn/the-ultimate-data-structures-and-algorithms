@@ -1,5 +1,5 @@
 ﻿using System;
-using the_ultimate_data_structures_and_algorithms.LinkedList;
+using System.Collections.Generic;
 
 namespace the_ultimate_data_structures_and_algorithms
 {
@@ -7,13 +7,16 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            var list = new MyLinkedList();
-            list.addLast(10);
-            list.addLast(20);
-            list.addLast(30);
-            list.addLast(40);
-            list.addLast(50);
-            System.Console.WriteLine(list.hasLoop());
+            var stack = new Stack<int>();
+            stack.Push(10);
+            stack.Push(20);
+            stack.Push(30);
+            System.Console.WriteLine(String.Join(", ", stack.ToArray()));
+            var top = stack.Pop();
+            System.Console.WriteLine(top.ToString());
+            System.Console.WriteLine(String.Join(", ", stack.ToArray()));
+            top = stack.Peek();
+            System.Console.WriteLine(top.ToString());
         }
     }
 }
