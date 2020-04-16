@@ -11,24 +11,37 @@ namespace the_ultimate_data_structures_and_algorithms.Stack
 
             foreach (var ch in input)
             {
-                if (ch.Equals('(') || ch.Equals('<') || ch.Equals('[') || ch.Equals('{'))
+                if (isLeftBracket(ch))
                     stack.Push(ch);
 
-                if (ch.Equals(')') || ch.Equals('>') || ch.Equals(']') || ch.Equals('}'))
+                if (isRightBracket(ch))
                 {
                     if (stack.Count == 0) return false;
 
                     var top = stack.Pop();
-                    if (
-                        (ch.Equals(')') && top != '(') ||
-                        (ch.Equals('>') && top != '<') ||
-                        (ch.Equals(']') && top != '[') ||
-                        (ch.Equals('}') && top != '{')
-                    ) return false;
+                    if (bracketsMatch(top, ch)) return false;
                 }
             }
 
             return stack.Count == 0 ? true : false;
+        }
+
+        private bool isLeftBracket(char ch)
+        {
+            return ch.Equals('(') || ch.Equals('<') || ch.Equals('[') || ch.Equals('{');
+        }
+
+        private bool isRightBracket(char ch)
+        {
+            return ch.Equals(')') || ch.Equals('>') || ch.Equals(']') || ch.Equals('}');
+        }
+
+        private bool bracketsMatch(char left, char right)
+        {
+            return (right.Equals(')') && left != '(') ||
+                    (right.Equals('>') && left != '<') ||
+                    (right.Equals(']') && left != '[') ||
+                    (right.Equals('}') && left != '{');
         }
     }
 }
