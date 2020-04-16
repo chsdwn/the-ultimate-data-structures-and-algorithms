@@ -4,47 +4,31 @@ namespace the_ultimate_data_structures_and_algorithms.Queue
 {
     public class MyQueue
     {
-        private int[] items = new int[5];
-        private int count = 0;
-        private int frontIndex = 0;
-        private int rearIndex = 0;
+        private int[] items;
+        private int rear;
+        private int front;
+        private int count;
 
-        // enqueue
+        public MyQueue(int capacity)
+        {
+            items = new int[capacity];
+        }
+
         public void enqueue(int item)
         {
-            if (count == 0)
-                items[0] = item;
-            else
-            {
-                items[++rearIndex] = item;
-            }
+            if (count == items.Length) throw new Exception();
 
+            items[rear++] = item;
             count++;
         }
 
-        // dequeue
         public int dequeue()
         {
+            var item = items[front];
+            items[front++] = 0;
             count--;
-            return items[frontIndex++];
-        }
 
-        // peek
-        public int peek()
-        {
-            return items[frontIndex];
-        }
-
-        // isEmpty
-        public bool isEmpty()
-        {
-            return count == 0;
-        }
-
-        // isFull
-        public bool isFull()
-        {
-            return items.Length - 1 == rearIndex;
+            return item;
         }
 
         public override string ToString()

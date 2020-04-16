@@ -8,18 +8,12 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            var queue = new MyQueue();
-            System.Console.WriteLine(queue.isEmpty());
-            System.Console.WriteLine(queue.isFull());
+            var queue = new MyQueue(5);
             queue.enqueue(10);
             queue.enqueue(20);
             queue.enqueue(30);
-            queue.enqueue(40);
-            queue.enqueue(50);
-            System.Console.WriteLine(queue.isEmpty());
-            System.Console.WriteLine(queue.isFull());
-            System.Console.WriteLine(queue.peek());
             System.Console.WriteLine(queue.dequeue());
+            System.Console.WriteLine(queue);
         }
 
         public static void reverse(Queue<int> queue)
