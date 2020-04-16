@@ -7,7 +7,7 @@ namespace the_ultimate_data_structures_and_algorithms
     {
         static void Main(string[] args)
         {
-            var str = ")1 + 2(";
+            var str = "(1 + 2]";
             var bs = new BalancedExpressions();
             System.Console.WriteLine(bs.isBalanced(str));
         }

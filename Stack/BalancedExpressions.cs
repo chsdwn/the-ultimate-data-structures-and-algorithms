@@ -11,12 +11,20 @@ namespace the_ultimate_data_structures_and_algorithms.Stack
 
             foreach (var ch in input)
             {
-                if (ch.Equals('(')) stack.Push(ch);
+                if (ch.Equals('(') || ch.Equals('<') || ch.Equals('[') || ch.Equals('{'))
+                    stack.Push(ch);
 
-                if (ch.Equals(')'))
+                if (ch.Equals(')') || ch.Equals('>') || ch.Equals(']') || ch.Equals('}'))
                 {
                     if (stack.Count == 0) return false;
-                    stack.Pop();
+
+                    var top = stack.Pop();
+                    if (
+                        (ch.Equals(')') && top != '(') ||
+                        (ch.Equals('>') && top != '<') ||
+                        (ch.Equals(']') && top != '[') ||
+                        (ch.Equals('}') && top != '{')
+                    ) return false;
                 }
             }
 
