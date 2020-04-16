@@ -1,10 +1,14 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace the_ultimate_data_structures_and_algorithms.Stack
 {
     public class BalancedExpressions
     {
+        private readonly static string leftBrackets = "(<[{";
+        private readonly static string rightBrackets = ")>]}";
+
         public bool isBalanced(string input)
         {
             var stack = new Stack<char>();
@@ -19,7 +23,7 @@ namespace the_ultimate_data_structures_and_algorithms.Stack
                     if (stack.Count == 0) return false;
 
                     var top = stack.Pop();
-                    if (bracketsMatch(top, ch)) return false;
+                    if (!bracketsMatch(top, ch)) return false;
                 }
             }
 
@@ -28,20 +32,17 @@ namespace the_ultimate_data_structures_and_algorithms.Stack
 
         private bool isLeftBracket(char ch)
         {
-            return ch.Equals('(') || ch.Equals('<') || ch.Equals('[') || ch.Equals('{');
+            return leftBrackets.Contains(ch);
         }
 
         private bool isRightBracket(char ch)
         {
-            return ch.Equals(')') || ch.Equals('>') || ch.Equals(']') || ch.Equals('}');
+            return rightBrackets.Contains(ch);
         }
 
         private bool bracketsMatch(char left, char right)
         {
-            return (right.Equals(')') && left != '(') ||
-                    (right.Equals('>') && left != '<') ||
-                    (right.Equals(']') && left != '[') ||
-                    (right.Equals('}') && left != '{');
+            return leftBrackets.IndexOf(left) == rightBrackets.IndexOf(right);
         }
     }
 }
