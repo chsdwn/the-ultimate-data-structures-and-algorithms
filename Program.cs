@@ -13,6 +13,11 @@ namespace the_ultimate_data_structures_and_algorithms
             queue.enqueue(20);
             queue.enqueue(30);
             System.Console.WriteLine(queue.dequeue());
+            queue.enqueue(40);
+            queue.enqueue(50);
+            queue.enqueue(60);
+            System.Console.WriteLine(queue.dequeue());
+            queue.enqueue(70);
             System.Console.WriteLine(queue);
         }
 

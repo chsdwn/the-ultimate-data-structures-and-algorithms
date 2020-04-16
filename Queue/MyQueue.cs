@@ -18,14 +18,16 @@ namespace the_ultimate_data_structures_and_algorithms.Queue
         {
             if (count == items.Length) throw new Exception();
 
-            items[rear++] = item;
+            items[rear] = item;
+            rear = (rear + 1) % items.Length;
             count++;
         }
 
         public int dequeue()
         {
             var item = items[front];
-            items[front++] = 0;
+            items[front] = 0;
+            front = (front + 1) % items.Length;
             count--;
 
             return item;
